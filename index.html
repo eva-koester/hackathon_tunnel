@@ -15,7 +15,7 @@
   </head> 
   <body>
   <strong>DB-Tunnel in Deutschland</strong>
-<div id="mapid" style="height: 500px;"></div>
+<div id="mapid" style="height: 500px; width: 800px;"></div>
 <script>
    var mymap = L.map('mapid').setView([53.550556, 9.993333], 10);
    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -26,9 +26,10 @@
 }).addTo(mymap);
 var i;
 for (i = 0; i < tunnels.length; i++) {
-    L.marker([tunnels[i][0][1],tunnels[i][0][0]]).addTo(mymap);
-    L.marker([tunnels[i][1][1], tunnels[i][1][0]]).addTo(mymap);
-    L.polygon([[tunnels[i][0][1],tunnels[i][0][0]],[tunnels[i][1][1], tunnels[i][1][0]]]).addTo(mymap);
+    //L.marker([tunnels[i][0][1],tunnels[i][0][0]]).addTo(mymap);
+   //L.marker([tunnels[i][1][1], tunnels[i][1][0]]).addTo(mymap);
+    L.polygon([[tunnels[i][0][1],tunnels[i][0][0]],[tunnels[i][1][1], tunnels[i][1][0]]]).setStyle({color: 'red'}).addTo(mymap);
+   //geojson.setStyle({fillColor: 'red'});
 }
    </script>
   </body>
